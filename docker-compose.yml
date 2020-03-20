@@ -97,9 +97,9 @@ services:
     image: node:12.16.1
     container_name: node-${APP_NAME}
     tty: true
-    working_dir: /usr/srv
+    working_dir: /var/www
     volumes:
-      - .:/usr/srv
+      - ./frontend:/var/www
     # command tail -F is added so container won't exit
     command: sh -c "yarn install && tail -F /anything/here"
     networks:
