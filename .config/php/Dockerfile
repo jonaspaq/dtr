@@ -1,3 +1,4 @@
+FROM composer:1.9 as composerTool
 
 FROM php:7.4-fpm-alpine
 
@@ -22,3 +23,5 @@ tokenizer \
 pcntl \
 simplexml \
 zip
+
+COPY --from=composerTool /usr/bin/composer /usr/bin/composer
