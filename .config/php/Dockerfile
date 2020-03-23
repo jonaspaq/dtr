@@ -1,4 +1,4 @@
-FROM composer:1.9 as composerTool
+FROM composer:1.10 as composerTool
 
 FROM php:7.4-fpm-alpine
 
