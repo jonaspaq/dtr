@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: cd into backend Directory
+      run: cd backend
+      
     - uses: actions/checkout@v2
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
