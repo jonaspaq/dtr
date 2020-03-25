@@ -30,7 +30,7 @@ jobs:
       working-directory: ${{env.working-directory}}
       
     - name: Install Dependencies
-      run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --prefer-dist
       working-directory: ${{env.working-directory}}
 
     - name: Generate key
