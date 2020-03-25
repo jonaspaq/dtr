@@ -11,11 +11,10 @@ jobs:
 
     runs-on: ubuntu-latest
     
-    steps:
+    steps:      
+    - uses: actions/checkout@v2
     - name: cd into backend Directory
       working-directory: ./backend
-      
-    - uses: actions/checkout@v2
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
