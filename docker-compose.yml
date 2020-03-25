@@ -2,6 +2,7 @@ version: '3.6'
 
 networks:
   appdtr:
+    driver: bridge
 
 services:
   php:
@@ -14,6 +15,18 @@ services:
       - ./backend:/usr/srv
     ports:
       - ${PHP_PORT}:9000
+    networks:
+      - appdtr
+
+  node:
+    image: node:12.16.1
+    container_name: node-${APP_NAME}
+    tty: true
+    working_dir: /var/www
+    volumes:
+      - ./frontend:/var/www
+    # command tail -F is added so container won't exit
+    # command: sh -c "yarn install && tail -F /anything/here"
     networks:
       - appdtr
 
@@ -47,7 +60,7 @@ services:
     image: mysql:8.0
     container_name: mysql-${APP_NAME}
     ports:
-      - 3306:3306
+      - ${DB_PORT}:3306
     tty: true
     depends_on:
       - nginx-back
@@ -75,17 +88,3 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
     networks:
       - appdtr
-
-# ------------------- OPTIONAL --------------------- #
-  node:
-    image: node:12.16.1
-    container_name: node-${APP_NAME}
-    tty: true
-    working_dir: /var/www
-    volumes:
-      - ./frontend:/var/www
-    # command tail -F is added so container won't exit
-    command: sh -c "yarn install && tail -F /anything/here"
-    networks:
-      - appdtr
-# ------------------ OPTIONAL --------------------- #
