@@ -13,7 +13,7 @@ jobs:
     
     steps:
     - name: cd into backend Directory
-      run: cd backend
+      working-directory: ./backend
       
     - uses: actions/checkout@v2
     - name: Copy .env
