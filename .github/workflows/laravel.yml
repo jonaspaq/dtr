@@ -13,7 +13,6 @@ jobs:
     
     steps:      
     - uses: actions/checkout@v2
-    - name: cd into backend Directory
       working-directory: ./backend
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
