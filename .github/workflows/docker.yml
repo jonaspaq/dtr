@@ -12,5 +12,8 @@ jobs:
 
     - name: Check docker version
       run: docker --version
+
+    - name: Build php image
+      run: docker build -f .config/php/Dockerfile .
       
    
