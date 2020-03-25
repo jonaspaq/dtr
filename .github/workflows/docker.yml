@@ -1,0 +1,16 @@
+name: Docker
+
+on:
+  push:
+
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+    
+    steps:      
+    - uses: actions/checkout@v2
+
+    - name: Check docker version
+      run: docker --version
+      
+   
