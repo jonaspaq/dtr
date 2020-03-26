@@ -17,6 +17,7 @@ services:
       - ${PHP_PORT}:9000
     environment: 
       DB_HOST: ${DB_HOST}
+    command: sh -c "composer install -n --no-progress && php-fpm"
     networks:
       - appdtr
 
@@ -28,7 +29,7 @@ services:
     volumes:
       - ./frontend:/var/www
     # command tail -F is added so container won't exit
-    # command: sh -c "yarn install && tail -F /anything/here"
+    command: sh -c "yarn install && node"
     networks:
       - appdtr
 
