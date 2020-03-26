@@ -17,7 +17,7 @@ services:
       - ${PHP_PORT}:9000
     environment: 
       DB_HOST: ${DB_HOST}
-    command: sh -c "composer install -n --no-progress && php-fpm"
+    # command: sh -c "composer install -n --no-progress --prefer-dist && php-fpm"
     networks:
       - appdtr
 
