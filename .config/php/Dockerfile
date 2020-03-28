@@ -22,6 +22,10 @@ mbstring \
 tokenizer \
 pcntl \
 simplexml \
-zip
+zip 
 
+# Install git, composer dependencies may be downloaded if there are issues
+# RUN apk add git 
+
+# Let composer also be usable in php image
 COPY --from=composerTool /usr/bin/composer /usr/bin/composer

@@ -81,6 +81,18 @@ services:
     networks:
       - appdtr
 
+  composer:
+    image: composer:1.10
+    container_name: composer-${APP_NAME}
+    tty: true
+    working_dir: /usr/srv
+    volumes:
+      - ./backend:/usr/srv
+    # command tail -F is added so container won't exit
+    command: sh -c "composer install -n --no-progress && tail -F /anything/unknown/here"
+    networks:
+      - appdtr
+
   phpadmin:
     image: phpmyadmin/phpmyadmin:5.0
     container_name: phpadmin-${APP_NAME}
