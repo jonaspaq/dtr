@@ -42,7 +42,7 @@ docker-compose exec php sh
 
 Copy environment variables
 ```
-cp .env.example
+cp .env.example .env
 ```
 
 Generate key for project
