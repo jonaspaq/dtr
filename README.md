@@ -23,7 +23,7 @@ Build and run docker
 docker-compose up -d --build
 ```
 
-Check logs if dependencies are installing. Wait for installs to succeed.
+After build, check logs if dependencies are installing. Wait for installs to succeed.
 
 For composer, run ``` docker-compose logs -f composer ```
 
